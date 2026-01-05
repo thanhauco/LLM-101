@@ -1,0 +1,23 @@
+{
+  "name": "llms-101",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Local-first LLM systems reference monorepo covering inference, RAG, agents, evaluation, fine-tuning, and observability.",
+  "workspaces": [
+    "apps/web",
+    "apps/admin",
+    "apps/playground"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "build:web": "npm --workspace apps/web run build",
+    "lint:web": "npm --workspace apps/web run lint",
+    "dev:api": "python -m uvicorn main:app --app-dir apps/api --reload --host 0.0.0.0 --port 8000",
+    "compose:up": "docker compose --env-file .env -f infra/docker/docker-compose.yml up --build",
+    "compose:down": "docker compose --env-file .env -f infra/docker/docker-compose.yml down"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}
