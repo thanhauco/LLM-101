@@ -1,0 +1,21 @@
+small:
+  - name: qwen-4b
+    use: edge and fast local assistant tasks
+  - name: gemma-4b
+    use: lightweight chat and summarization
+  - name: phi
+    use: tiny assistant and constrained devices
+medium:
+  - name: qwen-14b
+    use: general chat and RAG
+  - name: deepseek-16b
+    use: coding and repo assistance
+  - name: mistral-medium
+    use: reasoning and synthesis
+large:
+  - name: qwen-27b
+    use: agentic workflows
+  - name: deepseek-moe
+    use: high-throughput coding
+  - name: nemotron
+    use: enterprise reasoning
