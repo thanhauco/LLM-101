@@ -1,0 +1,2 @@
+{"instruction":"Explain KV cache simply.","input":"","output":"KV cache stores the key and value tensors from earlier tokens so the model does not recompute the full prompt during every decode step."}
+{"instruction":"When should I use RAG?","input":"","output":"Use RAG when answers must be grounded in changing, private, or large document collections that do not fit reliably in the model weights."}
