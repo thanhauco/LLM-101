@@ -1,0 +1,8 @@
+{
+  "name": "@llms101/playground",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "echo Playground app placeholder"
+  }
+}
