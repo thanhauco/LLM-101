@@ -29,6 +29,14 @@ The core lesson this repo reinforces is that production AI systems usually fail 
 | Document assistant | Implemented starter | `services/agents/document_assistant.py` |
 | Speculative decoding | Implemented starter | `services/inference/speculative_decoding.py` |
 | Model routing | Implemented starter | `services/routing/router.py`, `apps/api/main.py`, web route panel |
+| Structured Outputs | Implemented | `services/inference/structured_output_demo.py` |
+| Prompt Caching | Implemented | `services/inference/prompt_caching_demo.py` |
+| Multi-LoRA Serving | Implemented | `services/inference/multi_lora_demo.py` |
+| Corrective RAG (CRAG) | Implemented | `services/rag/corrective_rag.py` |
+| GraphRAG | Implemented | `services/rag/graph_rag.py` |
+| Sandboxed Code Tool | Implemented | `services/agents/code_sandbox.py` |
+| Input/Output Safety | Implemented | `services/guardrails/safety_gate.py` |
+| Browser Edge WebGPU | Implemented | `apps/web/app/edge/page.tsx` |
 
 The heavyweight ML examples are intentionally starter implementations. They are ready for local experimentation, but real inference, OCR, fine-tuning, and eval runs require model downloads, hardware-specific setup, and optional dependencies.
 
@@ -194,6 +202,19 @@ python services/inference/sglang_server.py
 | Large | Qwen 27B, DeepSeek MoE, Nemotron | Agents, coding, enterprise reasoning |
 
 Model binaries are ignored under `models/gguf`, `models/safetensors`, and `models/loras` so the repo stays lightweight.
+
+## Advanced Features (2026 Update)
+
+We have added a suite of production-grade advanced features showcasing modern LLM application patterns:
+
+1. **Structured Outputs & Guided Decoding** ([structured_output_demo.py](file:///c:/Code/LLM-101/services/inference/structured_output_demo.py)): Demonstrates logit-level schema constraints using Pydantic templates, ensuring that the model output conforms to structural formats like SQL queries or JSON parameters.
+2. **Context / Prompt Caching** ([prompt_caching_demo.py](file:///c:/Code/LLM-101/services/inference/prompt_caching_demo.py)): Measures Time-to-First-Token (TTFT) acceleration when reusing the prefix KV cache of large documents or system instructions (showing up to 30x latency reduction).
+3. **Multi-LoRA Serving** ([multi_lora_demo.py](file:///c:/Code/LLM-101/services/inference/multi_lora_demo.py)): Documents the API payloads and command setup for dynamic hot-swapping of specialized task adapters (like code or math models) on a single shared base model.
+4. **Corrective RAG (CRAG)** ([corrective_rag.py](file:///c:/Code/LLM-101/services/rag/corrective_rag.py)): Orchestrates an agentic self-corrective retrieval pipeline via LangGraph, checking context relevance and falling back to a query reformer / web search when local documents are missing.
+5. **GraphRAG** ([graph_rag.py](file:///c:/Code/LLM-101/services/rag/graph_rag.py)): Pure-Python entity-relationship mapping and traversal, showing how subgraph retrieval resolves global query questions.
+6. **Sandboxed Code Interpreter** ([code_sandbox.py](file:///c:/Code/LLM-101/services/agents/code_sandbox.py)): Restricts agent code execution using isolated subprocesses, timeouts, and error catching for local code assistant tasks.
+7. **Input/Output Safety Gate** ([safety_gate.py](file:///c:/Code/LLM-101/services/guardrails/safety_gate.py)): Scans input queries for prompt injection/system overrides and filters outputs for toxic or banned content.
+8. **Browser Edge WebGPU** ([page.tsx](file:///c:/Code/LLM-101/apps/web/app/edge/page.tsx)): A Next.js interface implementing offline browser-level inference with Transformers.js and WebGPU support.
 
 ## Validation
 

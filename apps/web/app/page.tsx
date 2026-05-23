@@ -4,6 +4,7 @@ import {
   Activity,
   Bot,
   Braces,
+  Cpu,
   Database,
   FileSearch,
   Gauge,
@@ -20,6 +21,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { D3MetricsChart } from "@/components/D3MetricsChart";
 import { D3SystemMap } from "@/components/D3SystemMap";
 import { ChatMessage, getRoute, sendChat } from "@/lib/api";
+import Link from "next/link";
 
 const systemMessage: ChatMessage = {
   role: "system",
@@ -151,6 +153,7 @@ export default function Home() {
           <a href="#diagram"><Workflow size={18} /> Diagram</a>
           <a href="#feed"><Radio size={18} /> Feed</a>
           <a href="#ops"><Gauge size={18} /> Ops</a>
+          <Link href="/edge"><Cpu size={18} /> Edge Compute</Link>
         </nav>
       </aside>
 
